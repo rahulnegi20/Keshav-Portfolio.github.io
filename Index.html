@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="icon" href="icons/favicon.ico" />
+<link rel="stylesheet" href="icons/font-awesome/css/all.css" />
+</head>
+
+<body>
+<div class="illustration">
+	<img src="svg/logo.png">
+</div>
+<div class="all-text">
+<h1>Hi,<br>My name is Keshav</h1><br>
+<div id="container">
+	<h2>I'm a&nbsp;</h2>
+	<div id="text"></div>
+</div>
+    <div class="page-wrapper">
+      <div class="content-wrapper">
+        <div class="links">
+        <a href="">Resume<span class="divider"> | </span></a>
+        <a href="">Projects<span class="divider"> | </span></a>
+        <a href="">About</a>
+        </div>        
+        <a href="https://twitter.com/kkeshav13">
+          <i class="icon fab fa-twitter fa-1x"></i>
+        </a>
+        <a href="https://github.com/kkeshav13">
+          <i class="icon fab fa-github fa-1x"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/kkeshav13/">
+          <i class="icon fab fa-linkedin-in fa-1x"></i>
+        </a>
+        <a href="mailto:keshavsingh00175@gmail.com">
+          <i class="icon fas fa-envelope fa-1x"></i>
+        </a>
+      </div>
+    </div>
+</div>    
+<script type="text/javascript">
+
+var _CONTENT = [ "Frontend Developer", "Writer", "Editor","CyberSec Enthusiast"];
+
+var _PART = 0;
+
+var _PART_INDEX = 0;
+
+var _INTERVAL_VAL;
+
+var _ELEMENT = document.querySelector("#text");
+
+function Type() { 
+	var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+	_ELEMENT.innerHTML = text;
+	_PART_INDEX++;
+
+	if(text === _CONTENT[_PART]) {
+		clearInterval(_INTERVAL_VAL);
+		setTimeout(function() {
+			_INTERVAL_VAL = setInterval(Delete, 100);
+		}, 1500);
+	}
+}
+
+function Delete() {
+	var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+	_ELEMENT.innerHTML = text;
+	_PART_INDEX--;
+
+	if(text === '') {
+		clearInterval(_INTERVAL_VAL);
+
+		if(_PART == (_CONTENT.length - 1))
+			_PART = 0;
+		else
+			_PART++;
+		_PART_INDEX = 0;
+
+		setTimeout(function() {
+			_INTERVAL_VAL = setInterval(Type, 100);
+		}, 200);
+	}
+}
+
+_INTERVAL_VAL = setInterval(Type, 100);
+
+</script>
+
+</body>
+</html>
